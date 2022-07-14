@@ -9,8 +9,9 @@ export function useAvailableProducts() {
     "available-products",
     async () => {
       const res = await axios.get<AvailableProduct[]>(
-        `${API_PATHS.bff}/product/available`
+        `${API_PATHS.bff}/products`
       );
+      console.log(res.data);
       return res.data;
     }
   );
@@ -24,6 +25,9 @@ export function useInvalidateAvailableProducts() {
   );
 }
 
+interface AvailableProductResponse {
+  products: AvailableProduct[];
+}
 export function useAvailableProduct(id?: string) {
   return useQuery<AvailableProduct, AxiosError>(
     ["product", { id }],
