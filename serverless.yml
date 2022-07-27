@@ -21,6 +21,7 @@ custom:
   client:
     bucketName: alpaca-react-cloudfront-shop
     distributionFolder: dist
+    existing: true
   s3BucketName: ${self:custom.client.bucketName}
 
   ## Serverless-single-page-app-plugin configuration:
